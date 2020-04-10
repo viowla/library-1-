@@ -3,10 +3,7 @@ package kz.iitu.library.controllers;
 import kz.iitu.library.classes.User;
 import kz.iitu.library.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,11 @@ public class UserController {
     @GetMapping("/{id}")
     public User getUserById(@PathVariable("id") Long id) {
         return userRepository.findById(id).get();
+    }
+
+    @GetMapping("/find/")
+    public List<User> getByNameContainingAndAge(@RequestParam String name,
+                                                @RequestParam("age") Integer age) {
+        return userRepository.findAllByNameContainsAndAge(name, age);
     }
 }

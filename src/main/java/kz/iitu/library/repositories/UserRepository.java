@@ -12,124 +12,40 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository implements JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     @Override
-    public List<User> findAll() {
-        return null;
-    }
+    public List<User> findAll();
 
     @Override
-    public List<User> findAll(Sort sort) {
-        return null;
-    }
+    public long count();
 
     @Override
-    public Page<User> findAll(Pageable pageable) {
-        return null;
-    }
+    public void deleteById(Long aLong);
 
     @Override
-    public List<User> findAllById(Iterable<Long> iterable) {
-        return null;
-    }
+    public void delete(User user);
 
     @Override
-    public long count() {
-        return 0;
-    }
+    public void deleteAll();
 
     @Override
-    public void deleteById(Long aLong) {
-
-    }
+    public <S extends User> S save(S s);
 
     @Override
-    public void delete(User user) {
+    <S extends User> S saveAndFlush(S s);
 
-    }
-
-    @Override
-    public void deleteAll(Iterable<? extends User> iterable) {
-
-    }
 
     @Override
-    public void deleteAll() {
-
-    }
+    public Optional<User> findById(Long aLong);
 
     @Override
-    public <S extends User> S save(S s) {
-        return null;
-    }
+    public boolean existsById(Long aLong);
 
     @Override
-    public <S extends User> List<S> saveAll(Iterable<S> iterable) {
-        return null;
-    }
+    public void flush();
 
     @Override
-    public Optional<User> findById(Long aLong) {
-        return Optional.empty();
-    }
+    public User getOne(Long aLong);
 
-    @Override
-    public boolean existsById(Long aLong) {
-        return false;
-    }
-
-    @Override
-    public void flush() {
-
-    }
-
-    @Override
-    public <S extends User> S saveAndFlush(S s) {
-        return null;
-    }
-
-    @Override
-    public void deleteInBatch(Iterable<User> iterable) {
-
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-
-    }
-
-    @Override
-    public User getOne(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public <S extends User> Optional<S> findOne(Example<S> example) {
-        return Optional.empty();
-    }
-
-    @Override
-    public <S extends User> List<S> findAll(Example<S> example) {
-        return null;
-    }
-
-    @Override
-    public <S extends User> List<S> findAll(Example<S> example, Sort sort) {
-        return null;
-    }
-
-    @Override
-    public <S extends User> Page<S> findAll(Example<S> example, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public <S extends User> long count(Example<S> example) {
-        return 0;
-    }
-
-    @Override
-    public <S extends User> boolean exists(Example<S> example) {
-        return false;
-    }
+    public List<User> findAllByNameContainsAndAge(String name, Integer age);
 }
