@@ -34,7 +34,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Override
     <S extends User> S saveAndFlush(S s);
 
-
     @Override
     public Optional<User> findById(Long aLong);
 
