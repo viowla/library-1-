@@ -1,6 +1,7 @@
 package kz.iitu.library.controllers;
 
 import kz.iitu.library.classes.Book;
+import kz.iitu.library.classes.Genre;
 import kz.iitu.library.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +39,10 @@ public class BookController {
     @DeleteMapping("/{id}")
     public void deleteBookById(@PathVariable("id") Long id){
         bookRepository.deleteById(id);
+    }
+
+    @GetMapping("/genre")
+    public List<Book> findBookByGenre(@PathVariable List<Genre> genre){
+        return bookRepository.findAllByGenre(genre);
     }
 }
