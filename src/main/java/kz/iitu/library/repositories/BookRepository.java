@@ -1,7 +1,6 @@
 package kz.iitu.library.repositories;
 
-import kz.iitu.library.classes.Book;
-import kz.iitu.library.classes.User;
+import kz.iitu.library.classes.*;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,5 +46,12 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Override
     public Book getOne(Long aLong);
 
+    public List<Book> findAllByGenre(Genre genre);
+
+    public List<Book> findBookByBookStatus(BookStatus bookStatus);
+
+    public List<Book> findBookByAuthorList(Author author);
+
+    public List<Book> findBooksByTitleAndAndBookStatus(String title, BookStatus bookStatus);
 
 }
