@@ -23,9 +23,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     public void deleteById(Long aLong);
 
     @Override
-    public void delete(Book book);
-
-    @Override
     public void deleteAll();
 
     @Override

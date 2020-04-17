@@ -15,9 +15,6 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
     public void deleteById(Long aLong);
 
     @Override
-    public void delete(Genre genre);
-
-    @Override
     public void deleteAll();
 
     @Override
