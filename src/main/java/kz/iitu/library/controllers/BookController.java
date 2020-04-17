@@ -19,7 +19,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public Book getUserById(@PathVariable("id") Long id) {
+    public Book getBookById(@PathVariable("id") Long id) {
         return bookRepository.findById(id).get();
     }
 
@@ -33,5 +33,10 @@ public class BookController {
                            @RequestBody Book book) {
         book.setId(id);
         return bookRepository.saveAndFlush(book);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBookById(@PathVariable("id") Long id){
+        bookRepository.deleteById(id);
     }
 }
