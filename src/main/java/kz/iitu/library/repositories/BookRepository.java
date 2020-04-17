@@ -46,12 +46,14 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Override
     public Book getOne(Long aLong);
 
-    public List<Book> findAllByGenre(Genre genre);
+    public List<Book> findAllByGenre(List<Genre> genres);
 
     public List<Book> findBookByBookStatus(BookStatus bookStatus);
 
-    public List<Book> findBookByAuthorList(Author author);
+    public List<Book> findBookByAuthorList(List<Author> authors);
 
     public List<Book> findBooksByTitleAndAndBookStatus(String title, BookStatus bookStatus);
+
+    public List<Book> getBookByAuthorListEquals(List<Author> authors);
 
 }
