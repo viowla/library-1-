@@ -48,5 +48,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     public List<User> findAllByNameContainsAndAge(String name, Integer age);
 
-    public List<User> findAllByOrderByBookId(String name,Integer id);
+    public List<User> findAllByOrderByBookId(String name,Long id);
 }
