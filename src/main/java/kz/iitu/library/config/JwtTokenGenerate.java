@@ -1,19 +1,31 @@
 package kz.iitu.library.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import kz.iitu.library.classes.User;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Date;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class JwtTokenGenerate extends UsernamePasswordAuthenticationFilter {
     // We use auth manager to validate the user credentials
     private AuthenticationManager authManager;
 
-    public JwtTokenGeneratorFilter(AuthenticationManager authManager) {
+    public JwtTokenGenerate(AuthenticationManager authManager) {
         this.authManager = authManager;
 
         // By default, UsernamePasswordAuthenticationFilter listens to "/login" path.

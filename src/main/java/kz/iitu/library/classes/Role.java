@@ -2,6 +2,8 @@ package kz.iitu.library.classes;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Role implements GrantedAuthority {
@@ -24,14 +26,6 @@ public class Role implements GrantedAuthority {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 
     @Override
