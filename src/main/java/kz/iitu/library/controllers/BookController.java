@@ -1,6 +1,7 @@
 package kz.iitu.library.controllers;
 
 import kz.iitu.library.classes.Book;
+import kz.iitu.library.classes.BookStatus;
 import kz.iitu.library.classes.Genre;
 import kz.iitu.library.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,10 @@ public class BookController {
     @GetMapping("/genre")
     public List<Book> findBookByGenre(@PathVariable List<Genre> genre){
         return bookRepository.findAllByGenre(genre);
+    }
+
+    @GetMapping("/status")
+    public List<Book> findBookByStatus(@PathVariable BookStatus bookStatus){
+        return bookRepository.findBookByBookStatus(bookStatus);
     }
 }
