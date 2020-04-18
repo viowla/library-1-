@@ -51,6 +51,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     public List<Book> findBooksByTitleAndAndBookStatus(String title, BookStatus bookStatus);
 
-    public List<Book> getBookByAuthorListEquals(List<Author> authors);
+    public List<Book> getBookByAuthorList(List<Author> authors);
 
 }
