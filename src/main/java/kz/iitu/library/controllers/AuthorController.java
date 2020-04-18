@@ -37,4 +37,13 @@ public class AuthorController {
         return authorRepository.saveAndFlush(author);
     }
 
+    @GetMapping("/{books}")
+    public List<Author> getAuthorByBooks(@PathVariable("books")List<Book> books){
+        return authorRepository.findAuthorByBookList(books);
+    }
+
+    @GetMapping("/{name}")
+    public List<Author> getAuthorByName(@RequestParam String name){
+        return authorRepository.findAuthorByName(name);
+    }
 }

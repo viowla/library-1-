@@ -1,7 +1,7 @@
 package kz.iitu.library.repositories;
 
 import kz.iitu.library.classes.Author;
-import kz.iitu.library.classes.User;
+import kz.iitu.library.classes.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -37,4 +37,8 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     @Override
     public Author getOne(Long aLong);
+
+    public List<Author> findAuthorByName(String name);
+
+    public List<Author> findAuthorByBookList(List<Book> books);
 }
