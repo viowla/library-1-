@@ -2,7 +2,6 @@ package kz.iitu.library.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
-import kz.iitu.library.classes.BookStatus;
 import kz.iitu.library.classes.User;
 import kz.iitu.library.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
