@@ -16,8 +16,8 @@ public class SpringConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("kz.iitu.library"))
+                .paths(PathSelectors.ant("/api/*"))
                 .build();
     }
 }
