@@ -1,9 +1,16 @@
 package kz.iitu.library.classes;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Setter
+@Getter
+@EqualsAndHashCode
 public class Book {
 
     @Id
@@ -18,7 +25,7 @@ public class Book {
     @ManyToMany(mappedBy = "bookList", fetch = FetchType.LAZY)
     private List<Author> authorList;
 
-    public Long getId() {
+    /*public Long getId() {
         return id;
     }
 
@@ -40,5 +47,5 @@ public class Book {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
+    }*/
 }

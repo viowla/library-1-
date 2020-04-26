@@ -1,5 +1,8 @@
 package kz.iitu.library.classes;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -9,6 +12,9 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@EqualsAndHashCode
+@Setter
+@Getter
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +38,7 @@ public class User implements UserDetails {
     @JoinColumn(name = "book_id", insertable = false, updatable = false)
     private List<Book> book;
 
-    public Long getId() {
+   /* public Long getId() {
         return id;
     }
 
@@ -50,7 +56,7 @@ public class User implements UserDetails {
 
     public String getUsername() {
         return username;
-    }
+    }*/
 
     @Override
     public boolean isAccountNonExpired() {
@@ -72,9 +78,9 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setUsername(String username) {
+    /*public void setUsername(String username) {
         this.username = username;
-    }
+    }*/
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -85,9 +91,14 @@ public class User implements UserDetails {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String getUsername() {
+        return username;
     }
+
+   /* public void setPassword(String password) {
+        this.password = password;
+    }*/
 
     public List<Role> getRoles() {
         return roles;
