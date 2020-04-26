@@ -27,27 +27,27 @@ public class BookController {
 
     @GetMapping("/{id}")
     @ApiOperation(response = {
-            @ApiResponse(code = 200, message = "user deteled"),
-            @ApiResponse(code = 400, message = "Invalid username supplied"),
-            @ApiResponse(code = 404, message = "User not found")})
+            @ApiResponse(code = 200, message = "book deteled"),
+            @ApiResponse(code = 400, message = "Invalid book supplied"),
+            @ApiResponse(code = 404, message = "book not found")})
     public Book getBookById(@PathVariable("id") Long id) {
         return bookRepository.findById(id).get();
     }
 
     @PostMapping("")
     @ApiOperation(response = {
-            @ApiResponse(code = 200, message = "user deteled"),
-            @ApiResponse(code = 400, message = "Invalid username supplied"),
-            @ApiResponse(code = 404, message = "User not found")})
+            @ApiResponse(code = 200, message = "book deteled"),
+            @ApiResponse(code = 400, message = "Invalid book supplied"),
+            @ApiResponse(code = 404, message = "book not found")})
     public Book createUser(@RequestBody Book book) {
         return bookRepository.saveAndFlush(book);
     }
 
     @PutMapping("/{id}")
     @ApiOperation(response = {
-            @ApiResponse(code = 200, message = "user deteled"),
-            @ApiResponse(code = 400, message = "Invalid username supplied"),
-            @ApiResponse(code = 404, message = "User not found")})
+            @ApiResponse(code = 200, message = "book deteled"),
+            @ApiResponse(code = 400, message = "Invalid book supplied"),
+            @ApiResponse(code = 404, message = "book not found")})
     public Book updateBook(@PathVariable Long id,
                            @RequestBody Book book) {
         book.setId(id);
@@ -57,27 +57,27 @@ public class BookController {
 
     @DeleteMapping("/{id}")
     @ApiOperation(response = {
-                    @ApiResponse(code = 200, message = "user deteled"),
-                    @ApiResponse(code = 400, message = "Invalid username supplied"),
-                    @ApiResponse(code = 404, message = "User not found")})
+                    @ApiResponse(code = 200, message = "book deteled"),
+                    @ApiResponse(code = 400, message = "Invalid book supplied"),
+                    @ApiResponse(code = 404, message = "book not found")})
     public void deleteBookById(@PathVariable("id") Long id){
         bookRepository.deleteById(id);
     }
 
     @GetMapping("/genre")
     @ApiOperation(response = {
-            @ApiResponse(code = 200, message = "user deteled"),
-            @ApiResponse(code = 400, message = "Invalid username supplied"),
-            @ApiResponse(code = 404, message = "User not found")})
+            @ApiResponse(code = 200, message = "book deteled"),
+            @ApiResponse(code = 400, message = "Invalid book supplied"),
+            @ApiResponse(code = 404, message = "book not found")})
     public List<Book> findBookByGenre(@PathVariable List<Genre> genre){
         return bookRepository.findAllByGenre(genre);
     }
 
     @GetMapping("/status")
     @ApiOperation(response = {
-            @ApiResponse(code = 200, message = "user deteled"),
-            @ApiResponse(code = 400, message = "Invalid username supplied"),
-            @ApiResponse(code = 404, message = "User not found")})
+            @ApiResponse(code = 200, message = "book deteled"),
+            @ApiResponse(code = 400, message = "Invalid book supplied"),
+            @ApiResponse(code = 404, message = "book not found")})
     public List<Book> findBookByStatus(@PathVariable BookStatus bookStatus){
         return bookRepository.findBookByBookStatus(bookStatus);
     }

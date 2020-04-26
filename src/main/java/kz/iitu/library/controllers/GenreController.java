@@ -1,5 +1,7 @@
 package kz.iitu.library.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 import kz.iitu.library.classes.Author;
 import kz.iitu.library.classes.Genre;
 import kz.iitu.library.repositories.AuthorRepository;
@@ -26,11 +28,19 @@ public class GenreController {
     }
 
     @DeleteMapping("")
+    @ApiOperation(response = {
+            @ApiResponse(code = 200, message = "genre deteled"),
+            @ApiResponse(code = 400, message = "Invalid genre supplied"),
+            @ApiResponse(code = 404, message = "genre not found")})
     public void deleteAllGenres(){
         genreRepository.deleteAll();
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(response = {
+            @ApiResponse(code = 200, message = "genre deteled"),
+            @ApiResponse(code = 400, message = "Invalid genre supplied"),
+            @ApiResponse(code = 404, message = "genre not found")})
     public void deleteGenreById(@PathVariable("id") Long id){
         genreRepository.deleteById(id);
     }
