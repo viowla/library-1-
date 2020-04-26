@@ -1,5 +1,6 @@
 package kz.iitu.library.controllers;
 
+import io.swagger.annotations.ApiResponses;
 import kz.iitu.library.classes.Author;
 import kz.iitu.library.classes.Book;
 import kz.iitu.library.repositories.AuthorRepository;
@@ -10,6 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/authors")
+@ApiResponses(value = {
+        @ApiResponses(code = 401, message = "Not authorized"),
+        @ApiResponses(code = 404, message="NotFound")
+})
 public class AuthorController {
 
     @Autowired
